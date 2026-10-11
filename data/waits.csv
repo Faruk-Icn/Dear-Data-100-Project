@@ -1,1 +1,10 @@
 date,time,place_type,wait_for,duration_minutes,mood_start,mood_end,outcome,activity
+2026-10-10,09:12,bus_stop,bus,8,3,2,succeeded,listening_music
+2026-10-10,13:20,restaurant,table,15,3,2,succeeded,talking
+2026-10-10,16:42,station,train,18,2,1,missed,checking_phone
+2026-10-10,19:14,takeaway,food_order,12,4,3,succeeded,chatting
+2026-10-11,09:47,bus_stop,bus,5,3,3,succeeded,standing
+2026-10-11,11:10,supermarket,checkout,9,3,2,succeeded,checking_phone
+2026-10-11,12:44,cafe,friend,11,4,5,succeeded,reading
+2026-10-11,15:27,home,delivery,22,2,1,quit,watching_tv
+2026-10-11,18:36,restaurant,food_order,14,4,3,succeeded,talking
