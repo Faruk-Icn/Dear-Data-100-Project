@@ -27,4 +27,4 @@ Each row will have 9 different columns which I plan on representing simultaneous
 - Current Data: 0/100
 ### Week 2:
 - Recorded and uploaded data
-- Current Data 9/100
+- Current Data 18/100
