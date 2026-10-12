@@ -8,3 +8,11 @@ date,time,place_type,wait_for,duration_minutes,mood_start,mood_end,outcome,activ
 2026-10-11,12:44,cafe,friend,11,4,5,succeeded,reading
 2026-10-11,15:27,home,delivery,22,2,1,quit,watching_tv
 2026-10-11,18:36,restaurant,food_order,14,4,3,succeeded,talking
+2026-10-12,08:15,station,train,12,3,2,succeeded,listening_music
+2026-10-12,08:50,school,class_start,8,3,3,succeeded,talking
+2026-10-12,10:20,school,teacher,5,4,4,succeeded,reading
+2026-10-12,11:45,cafeteria,lunch_line,14,2,1,succeeded,checking_phone
+2026-10-12,13:10,school,lecture,6,3,3,succeeded,standing
+2026-10-12,15:05,library,study_group,10,4,4,succeeded,reading
+2026-10-12,16:30,station,train,20,2,1,missed,checking_phone
+2026-10-12,17:25,bus_stop,bus,7,3,3,succeeded,listening_music
