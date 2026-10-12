@@ -25,3 +25,6 @@ Each row will have 9 different columns which I plan on representing simultaneous
 - Created a CSV template for the data I'm recording.
 - Created a README
 - Current Data: 0/100
+### Week 2:
+- Recorded and uploaded data
+- Current Data 9/100
