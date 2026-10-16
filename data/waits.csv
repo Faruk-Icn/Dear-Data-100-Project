@@ -21,5 +21,5 @@ date,time,place_type,wait_for,duration_minutes,mood_start,mood_end,outcome,activ
 2026-10-13,15:15,cafeteria,lunch_line,16,3,1,succeeded,checking_phone
 2026-10-14,11:30,library,tech_booth,8,3,2,succeeded,checking_phone
 2026-10-15,08:05,station,train,15,3,1,missed,checking_phone
-2026-10-15,14:20,school,lab_access,6,4,3,succeeded,standing
+2026-10-15,13:50,school,lab_start,6,4,3,succeeded,standing
 2026-10-15,14:55,cafeteria,food_order,12,2,2,succeeded,talking
