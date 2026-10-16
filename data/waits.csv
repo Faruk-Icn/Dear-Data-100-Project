@@ -16,3 +16,10 @@ date,time,place_type,wait_for,duration_minutes,mood_start,mood_end,outcome,activ
 2026-10-12,15:05,library,study_group,10,4,4,succeeded,reading
 2026-10-12,16:30,station,train,20,2,1,missed,checking_phone
 2026-10-12,17:25,bus_stop,bus,7,3,3,succeeded,listening_music
+2026-10-13,08:10,station,train,11,3,2,succeeded,listening_music
+2026-10-13,13:55,lecture_hall,lecture_start,7,4,3,succeeded,talking
+2026-10-13,15:15,cafeteria,lunch_line,16,3,1,succeeded,checking_phone
+2026-10-14,11:30,library,tech_booth,8,3,2,succeeded,checking_phone
+2026-10-15,08:05,station,train,15,3,1,missed,checking_phone
+2026-10-15,14:20,school,lab_access,6,4,3,succeeded,standing
+2026-10-15,14:55,cafeteria,food_order,12,2,2,succeeded,talking
