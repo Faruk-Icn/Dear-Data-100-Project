@@ -1,78 +1,82 @@
 Table waits;
+ArrayList<WaitFlower> flowers = new ArrayList<WaitFlower>();
 
-int petalCount;
-float centerSize;
-float stemLength = 150;
-float averageWait;
+int minDateKey = 99999999;
+int maxDateKey = 0;
 
 void setup() {
-  size(400, 400);
+  size(1100, 750);
+  smooth();
 
   waits = loadTable("waits.csv", "header");
 
-  averageWait = calculateAverageWait();
-  petalCount = calculatePetalCount();
-  centerSize = map(averageWait, 0, 30, 40, 110);
+  // Find the date range first, so every date can be mapped across the garden.
+  for (TableRow row : waits.rows()) {
+    int dateKey = dateToKey(row.getString("date"));
+    minDateKey = min(minDateKey, dateKey);
+    maxDateKey = max(maxDateKey, dateKey);
+  }
+
+  if (minDateKey == maxDateKey) {
+    maxDateKey = minDateKey + 1;
+  }
+
+  // Each CSV row becomes one WaitFlower object.
+  for (TableRow row : waits.rows()) {
+    flowers.add(new WaitFlower(
+      row,
+      minDateKey,
+      maxDateKey
+    ));
+  }
 }
 
 void draw() {
-  background(255);
+  drawGardenBackground();
 
-  pushMatrix();
-  translate(width / 2, height / 2);
+  for (WaitFlower flower : flowers) {
+    flower.display();
+  }
 
-  // Stem
-  stroke(34, 139, 34);
-  strokeWeight(6);
-  line(0, 0, 0, stemLength);
+  drawTitleAndKey();
+}
 
-  // Petals: number depends on the number of CSV rows
+void drawGardenBackground() {
+  background(235, 249, 238);
+
   noStroke();
-  fill(240, 50, 50);
+  fill(198, 229, 196);
+  rect(0, height - 80, width, 80);
 
-  for (int i = 0; i < petalCount; i++) {
-    float angle = TWO_PI / petalCount * i;
-
-    pushMatrix();
-    rotate(angle);
-    ellipse(centerSize * 0.6, 0, centerSize * 0.9, centerSize * 0.5);
-    popMatrix();
+  stroke(130, 160, 130);
+  strokeWeight(1);
+  for (int hour = 0; hour <= 24; hour += 4) {
+    float y = map(hour * 60, 0, 1439, 115, height - 105);
+    line(75, y, width - 75, y);
   }
-
-  // Flower centre: size depends on average wait duration
-  fill(255, 204, 0);
-  ellipse(0, 0, centerSize, centerSize);
-
-  popMatrix();
-
-  fill(0);
-  textAlign(CENTER);
-  text("Average wait: " + nf(averageWait, 0, 1) + " minutes", width / 2, 30);
-
-  int recordCount = waits == null ? 0 : waits.getRowCount();
-  text("Recorded waits: " + recordCount, width / 2, 50);
 }
 
-// Returns the average duration from duration_minutes in the CSV
-float calculateAverageWait() {
-  if (waits == null || waits.getRowCount() == 0) {
-    return 0;
-  }
+void drawTitleAndKey() {
+  fill(30, 70, 40);
+  textAlign(LEFT);
+  textSize(24);
+  text("Mood Garden: Waiting Data", 30, 38);
 
-  float totalMinutes = 0;
+  textSize(12);
+  text("X-axis = date    Y-axis = time of day    Hover over a flower to reveal its mood change", 30, 60);
 
-  for (TableRow row : waits.rows()) {
-    totalMinutes += row.getFloat("duration_minutes");
-  }
-
-  return totalMinutes / waits.getRowCount();
+  textAlign(RIGHT);
+  text("Flowers: " + flowers.size(), width - 30, 38);
 }
 
-// Returns a petal count based on the number of recorded observations
-int calculatePetalCount() {
-  if (waits == null) {
-    return 5;
-  }
+// Returns a number that Processing can map along the X-axis.
+int dateToKey(String date) {
+  String[] parts = split(date, "-");
+  return int(parts[0]) * 372 + int(parts[1]) * 31 + int(parts[2]);
+}
 
-  return constrain(waits.getRowCount(), 5, 12);
+// Returns the number of minutes after midnight for the Y-axis.
+int timeToMinutes(String time) {
+  String[] parts = split(time, ":");
+  return int(parts[0]) * 60 + int(parts[1]);
 }
