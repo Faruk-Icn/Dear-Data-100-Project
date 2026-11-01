@@ -65,3 +65,8 @@ This is the first prototype for the Mood Garden. The next stage is to create ind
 - Added methods that return the average wait duration and petal count
 - Created the first flower prototype based on the collected data
 - Current Data: 39/100
+
+### Week 4:
+- Worked on methods and improved the program
+- Implemented CSV data to the program
+- Current Data: 62/100
