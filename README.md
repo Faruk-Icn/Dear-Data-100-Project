@@ -25,9 +25,9 @@ For my project I have decided to create a "Mood Garden" which will allow me to e
 
 - The date of the wait will be represented by planting the flower on the X-Axis of the garden using the map() function
 - The time will also be represented in a similar way on the Y-Axis of the garden
-- The place type will be represented by the outer colour of each flower
-- The wait duration will control the size of the flower head
-- Mood start and mood end will be represented in a more advanced system where mood start will be the original number of leaves on the stem and as the user hovers over the flower the leaves will increase or decrease depending on the mood end
+- The place type will be represented by the colour of the petals on each flower
+- The wait duration will control the number of petals around the flower
+- The activity during the wait will be represented by the stem colour
 - The mood of the flower will be represented by the outcome of the the wait (happy, neutral, unhappy)
 - The wait for is going to be displayed on a sign next to the flower
 
@@ -39,12 +39,12 @@ The current Processing sketch is in `DearData100_pde.pde` at the repository root
 Each row in the CSV creates a `WaitFlower` object:
 
 - The date and time control its position in the garden.
-- The outer flower colour represents the place type.
-- The flower-head size represents the wait duration.
-- Leaves represent the starting mood and change to the ending mood on hover.
+- The petal colour represents the place type.
+- The number of petals represents the wait duration.
+- The stem colour represents the activity during the wait.
 - The centre colour and expression represent the outcome.
 
-Methods that return values include `dateToKey()`, `timeToMinutes()`, `flowerSizeFromDuration()`, `isHovered()`, and the colour methods in the `WaitFlower` class.
+Methods that return values include `dateToKey()`, `timeToMinutes()`, `petalsFromDuration()`, `isHovered()`, and the colour methods in the `WaitFlower` class.
 
 ## Log
 ### Week 1:
