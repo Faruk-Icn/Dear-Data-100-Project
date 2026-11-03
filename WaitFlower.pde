@@ -42,22 +42,24 @@ class WaitFlower {
     int visibleLeaves = hovered ? moodEnd : moodStart;
 
     drawStemAndLeaves(visibleLeaves);
-    drawPetals();
+    drawFlowerHead();
     drawOutcomeFace();
 
     popMatrix();
   }
 
   void drawStemAndLeaves(int leafCount) {
+    float headRadius = flowerSizeFromDuration() / 2;
+
     stroke(47, 112, 55);
     strokeWeight(3);
-    line(0, flowerRadius, 0, stemLength);
+    line(0, headRadius, 0, stemLength);
 
     noStroke();
     fill(activityColour());
 
     for (int i = 0; i < leafCount; i++) {
-      float leafY = flowerRadius + 9 + i * ((stemLength - flowerRadius - 12) / max(1, leafCount));
+      float leafY = headRadius + 7 + i * ((stemLength - headRadius - 10) / max(1, leafCount));
 
       pushMatrix();
       translate(0, leafY);
@@ -67,20 +69,11 @@ class WaitFlower {
     }
   }
 
-  void drawPetals() {
+  void drawFlowerHead() {
     noStroke();
     fill(placeColour());
-
-    int petalCount = petalsFromDuration();
-
-    for (int i = 0; i < petalCount; i++) {
-      float angle = TWO_PI * i / petalCount;
-
-      pushMatrix();
-      rotate(angle);
-      ellipse(flowerRadius + 9, 0, 23, 11);
-      popMatrix();
-    }
+    float flowerSize = flowerSizeFromDuration();
+    ellipse(0, 0, flowerSize, flowerSize);
   }
 
   void drawOutcomeFace() {
@@ -108,12 +101,12 @@ class WaitFlower {
     }
   }
 
-  int petalsFromDuration() {
-    return max(3, durationMinutes);
+  float flowerSizeFromDuration() {
+    return map(constrain(durationMinutes, 0, 30), 0, 30, 30, 62);
   }
 
   boolean isHovered() {
-    return dist(mouseX, mouseY, x, y) < flowerRadius + 14;
+    return dist(mouseX, mouseY, x, y) < flowerSizeFromDuration() / 2;
   }
 
   color placeColour() {

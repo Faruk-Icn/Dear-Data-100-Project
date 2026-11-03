@@ -25,8 +25,8 @@ For my project I have decided to create a "Mood Garden" which will allow me to e
 
 - The date of the wait will be represented by planting the flower on the X-Axis of the garden using the map() function
 - The time will also be represented in a similar way on the Y-Axis of the garden
-- The place type will be represented by the colour of the petals on each flower
-- The wait duration will be the number of petals that surround the flower
+- The place type will be represented by the outer colour of each flower
+- The wait duration will control the size of the flower head
 - Mood start and mood end will be represented in a more advanced system where mood start will be the original number of leaves on the stem and as the user hovers over the flower the leaves will increase or decrease depending on the mood end
 - The mood of the flower will be represented by the outcome of the the wait (happy, neutral, unhappy)
 - The wait for is going to be displayed on a sign next to the flower
@@ -36,18 +36,15 @@ For my project I have decided to create a "Mood Garden" which will allow me to e
 
 The current Processing sketch is in `DearData100_pde.pde` at the repository root. It loads the waiting dataset from `data/waits.csv`.
 
-The prototype represents the full dataset as one flower:
+Each row in the CSV creates a `WaitFlower` object:
 
-- The flower centre size is based on the average wait duration.
-- The number of petals is based on the number of recorded observations, limited to 5–12 petals so that the flower remains readable.
-- The sketch displays the calculated average waiting time and the number of recorded waits.
+- The date and time control its position in the garden.
+- The outer flower colour represents the place type.
+- The flower-head size represents the wait duration.
+- Leaves represent the starting mood and change to the ending mood on hover.
+- The centre colour and expression represent the outcome.
 
-Two methods return values from the CSV data:
-
-- `calculateAverageWait()` returns a `float` average of the `duration_minutes` column.
-- `calculatePetalCount()` returns an `int` based on the number of rows in the CSV.
-
-This is the first prototype for the Mood Garden. The next stage is to create individual flowers so that each wait can use its own date, time, place, mood, outcome, and activity values.
+Methods that return values include `dateToKey()`, `timeToMinutes()`, `flowerSizeFromDuration()`, `isHovered()`, and the colour methods in the `WaitFlower` class.
 
 ## Log
 ### Week 1:
@@ -62,7 +59,7 @@ This is the first prototype for the Mood Garden. The next stage is to create ind
 
 ### Week 3:
 - Connected the Processing sketch to the CSV data
-- Added methods that return the average wait duration and petal count
+- Added methods that return values from the collected data
 - Created the first flower prototype based on the collected data
 - Current Data: 39/100
 
