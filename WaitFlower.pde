@@ -125,25 +125,25 @@ class WaitFlower {
 
   color activityColour() {
     if (activity.equals("listening_music")) {
-      return color(80, 150, 210);
+      return color(80, 150, 210); //blue
     } else if (activity.equals("reading")) {
-      return color(70, 165, 135);
+      return color(70, 165, 135); //teal
     } else if (activity.equals("talking") || activity.equals("chatting")) {
-      return color(180, 110, 190);
+      return color(180, 110, 190); //purple
     } else if (activity.equals("checking_phone") || activity.equals("scrolling")) {
-      return color(235, 165, 75);
+      return color(235, 165, 75); //orange
     } else {
-      return color(96, 175, 90);
+      return color(96, 175, 90); //green
     }
   }
 
   color outcomeColour() {
     if (outcome.equals("succeeded")) {
-      return color(255, 220, 75);
+      return color(255, 220, 75); //yellow
     } else if (outcome.equals("missed")) {
-      return color(240, 110, 105);
+      return color(240, 110, 105); //red
     } else {
-      return color(190, 195, 205);
+      return color(190, 195, 205); //grey
     }
   }
 }
