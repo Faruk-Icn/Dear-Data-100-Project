@@ -26,10 +26,10 @@ class WaitFlower {
     outcome = row.getString("outcome");
     activity = row.getString("activity");
 
-    // Date plants a flower along the X-axis.
+    // Date plants a flower along the X-axis
     x = map(dateToKey(date), minDateKey, maxDateKey, 90, width - 90);
 
-    // Time plants a flower along the Y-axis.
+    // Time plants a flower along the Y-axis
     y = map(timeToMinutes(time), 0, 1439, 115, height - 110);
   }
 
@@ -39,18 +39,11 @@ class WaitFlower {
     pushMatrix();
     translate(x, y);
 
-    // Mood start is the default leaf count.
-    // On hover, the leaves change to show mood end.
     int visibleLeaves = hovered ? moodEnd : moodStart;
 
     drawStemAndLeaves(visibleLeaves);
     drawPetals();
     drawOutcomeFace();
-    drawWaitForSign();
-
-    if (hovered) {
-      drawHoverDetails();
-    }
 
     popMatrix();
   }
@@ -110,57 +103,30 @@ class WaitFlower {
       // Unhappy
       arc(0, 7, 9, 7, PI, TWO_PI);
     } else {
-      // Neutral / quit
+      // Neutral 
       line(-4, 5, 4, 5);
     }
   }
 
-  void drawWaitForSign() {
-    float signX = flowerRadius + 18;
-    float signY = 4;
-
-    stroke(112, 77, 43);
-    strokeWeight(2);
-    line(signX, signY, signX, stemLength);
-
-    rectMode(CORNER);
-    fill(255, 247, 218);
-    rect(signX - 24, signY - 15, 48, 19, 3);
-
-    fill(70, 50, 30);
-    textAlign(CENTER, CENTER);
-    textSize(8);
-    text(waitFor, signX, signY - 6);
-  }
-
-  void drawHoverDetails() {
-    fill(35, 90, 45);
-    textAlign(CENTER);
-    textSize(10);
-    text("Mood: " + moodStart + " → " + moodEnd + " | " + activity, 0, stemLength + 17);
-  }
-
-  // Returns the number of petals. Duration directly controls petal count.
   int petalsFromDuration() {
     return max(3, durationMinutes);
   }
 
-  // Returns true when the mouse is over this flower.
   boolean isHovered() {
     return dist(mouseX, mouseY, x, y) < flowerRadius + 14;
   }
 
   color placeColour() {
     if (placeType.equals("station") || placeType.equals("bus_stop")) {
-      return color(85, 150, 240);
+      return color(85, 150, 240); //blue
     } else if (placeType.equals("cafeteria") || placeType.equals("restaurant") || placeType.equals("cafe") || placeType.equals("takeaway")) {
-      return color(242, 140, 110);
+      return color(242, 140, 110); //orange
     } else if (placeType.equals("library")) {
-      return color(160, 120, 205);
+      return color(160, 120, 205); //purple
     } else if (placeType.equals("school") || placeType.equals("lecture_hall")) {
-      return color(245, 190, 80);
+      return color(245, 190, 80); //yellow
     } else {
-      return color(130, 195, 140);
+      return color(130, 195, 140); //green
     }
   }
 
