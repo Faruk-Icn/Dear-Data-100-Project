@@ -34,7 +34,7 @@ For my project I have decided to create a "Mood Garden" which will allow me to e
 
 ## Current Processing prototype
 
-The current Processing sketch is in `DearData100_pde/DearData100_pde.pde`. It loads a copy of the waiting dataset from `DearData100_pde/data/waits.csv`.
+The current Processing sketch is in `DearData100_pde.pde` at the repository root. It loads the waiting dataset from `data/waits.csv`.
 
 The prototype represents the full dataset as one flower:
 
