@@ -61,3 +61,13 @@ date,time,place_type,wait_for,duration_minutes,mood_start,mood_end,outcome,activ
 2026-11-01,11:15,cafe,friend,10,4,5,succeeded,reading
 2026-11-01,15:40,home,delivery,20,2,1,quit,watching_tv
 2026-11-01,18:50,takeaway,food_order,13,3,3,succeeded,checking_phone
+2026-11-02,08:12,station,train,11,3,2,succeeded,listening_music
+2026-11-02,12:00,cafeteria,lunch_line,14,3,2,succeeded,checking_phone
+2026-11-02,16:45,station,train,18,2,1,missed,checking_phone
+2026-11-03,08:15,bus_stop,bus,7,3,3,succeeded,listening_music
+2026-11-03,13:55,school,lecture,6,4,3,succeeded,standing
+2026-11-03,15:20,library,study_group,11,4,4,succeeded,reading
+2026-11-04,08:06,station,train,13,2,1,missed,checking_phone
+2026-11-04,11:35,library,tech_booth,8,3,2,succeeded,checking_phone
+2026-11-04,18:30,takeaway,food_order,12,3,3,succeeded,talking
+2026-11-05,08:10,bus_stop,bus,6,3,2,succeeded,listening_music
