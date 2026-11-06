@@ -67,3 +67,6 @@ Methods that return values include `dateToKey()`, `timeToMinutes()`, `petalsFrom
 - Worked on methods and improved the program
 - Implemented CSV data to the program
 - Current Data: 62/100
+
+### Week 5:
+- Updated flower method and worked on the main pde
