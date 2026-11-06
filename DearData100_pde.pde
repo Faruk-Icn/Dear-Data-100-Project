@@ -41,14 +41,14 @@ void draw() {
 }
 
 void drawGardenBackground() {
-  background(235, 249, 238);
+  background(240, 240, 240);
 
   noStroke();
 
   stroke(130, 160, 130);
   strokeWeight(1);
   for (int hour = 0; hour <= 24; hour += 4) {
-    float y = map(hour * 60, 0, 1439, 115, height - 105);
+    float y = map(hour * 60, 0, 24 * 60 - 1, 115, height - 105);
     line(75, y, width - 75, y);
   }
 }
@@ -56,10 +56,12 @@ void drawGardenBackground() {
 
 int dateToKey(String date) {
   String[] parts = split(date, "-");
-  return int(parts[0]) * 372 + int(parts[1]) * 31 + int(parts[2]);
+  println (int(parts[0]) * 31 * 12 + int(parts[1]) * 31 + int(parts[2]));
+  return int(parts[0]) * 31 * 12 + int(parts[1]) * 31 + int(parts[2]);
 }
 
 int timeToMinutes(String time) {
   String[] parts = split(time, ":");
+   println (int(parts[0]) * 60 + int(parts[1]));
   return int(parts[0]) * 60 + int(parts[1]);
 }
