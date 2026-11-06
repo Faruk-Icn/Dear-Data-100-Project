@@ -45,7 +45,7 @@ class WaitFlower {
   }
 
   void drawStem() {
-    stroke(activityColour());
+    stroke(96, 175, 90); 
     strokeWeight(3);
     line(0, flowerRadius, 0, stemLength);
   }
